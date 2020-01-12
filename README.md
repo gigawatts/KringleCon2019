@@ -121,7 +121,42 @@ Difficulty: 🌲🌲🌲🌲
 
 *Help Krampus beat the [Frido Sleigh contest](https://fridosleigh.com/). For hints on achieving this objective, please talk with Alabaster Snowball in the Speaker Unpreparedness Room.*
 
-Merged code from capteha_api.py and predict_images_using_trained_model.py as well as some custom code to reformat the uuids, ran the script. 
+Hints from Krampus:
+
+*Tell you what – if you can help me beat the [Frido Sleigh](https://fridosleigh.com/) contest (Objective 8), then I'll know I can trust you.
+The contest is here on my screen and at fridosleigh.com.
+No purchase necessary, enter as often as you want, so I am!
+They set up the rules, and lately, I have come to realize that I have certain materialistic, cookie needs.
+Unfortunately, it's restricted to elves only, and I can't bypass the CAPTEHA.
+(That's Completely Automated Public Turing test to tell Elves and Humans Apart.)
+I've already cataloged [12,000 images](https://downloads.elfu.org/capteha_images.tar.gz) and decoded the [API interface](https://downloads.elfu.org/capteha_api.py).
+Can you help me bypass the CAPTEHA and submit lots of entries?*
+
+Check out Chris Davis's talk, [Machine Learning Use Cases for Cybersecurity](https://www.youtube.com/watch?v=jmVPLwjm_zs), along with his [example code](https://github.com/chrisjd20/img_rec_tf_ml_demo).
+
+I merged code from capteha_api.py and predict_images_using_trained_model.py as well as some custom code to reformat the uuids.
+
+I ran the training script on my desktop with a CUDA enabled NVIDIA GPU, which sped up the training by quite a bit.
+
+I ran my [solve script](obj08/solve.py) from my beefy Xeon powered server, as it was able to correctly predict all the images in under 10 seconds, while my desktop took a bit longer. I found out later on that I could have tweaked the [retrain.py](https://github.com/chrisjd20/img_rec_tf_ml_demo/blob/master/retrain.py) script to use a faster (but less accurate) model, but why optimise code when you can just throw more raw power at it? 😉
+
+The script output looks something like this:
+
+    $ ./solve.py
+
+    challenge_image_types: ['Santa Hats', 'Presents', 'Christmas Trees']
+    Processing 100 Images
+    Waiting For Threads to Finish...
+    CAPTEHA Solved!   
+    Submitting lots of entries until we win the contest! Entry #1
+    Submitting lots of entries until we win the contest! Entry #2
+    Submitting lots of entries until we win the contest! Entry #3
+    Submitting lots of entries until we win the contest! Entry #4
+    Submitting lots of entries until we win the contest! Entry #5
+    ...
+    Submitting lots of entries until we win the contest! Entry #99
+    Submitting lots of entries until we win the contest! Entry #100
+    {"data":"<h2 id=\"result_header\"> Entries for email address [redacted] no longer accepted as our systems show your email was already randomly selected as a winner! Go check your email to get your winning code. Please allow up to 3-5 minutes for the email to arrive in your inbox or check your spam filter settings. <br><br> Congratulations and Happy Holidays!</h2>","request":true}
 
 **Answer: 8Ia8LiZEwvyZr2WO**
 
