@@ -33,7 +33,13 @@ Difficulty: 🌲
 
 *We're seeing attacks against the Elf U domain! Using [the event log data](https://downloads.elfu.org/Security.evtx.zip), identify the user account that the attacker compromised using a password spray attack. Bushy Evergreen is hanging out in the train station and may be able to help you out.*
 
-Running the DeepBlueCLI downloaded from github against the provided Windows Security log file, look for a successful login after a series of "High number of login failures for one account" alerts.
+Hints from Bushy Evergreen:
+*Have you taken a look at the password spray attack artifacts?
+I'll bet that DeepBlueCLI tool is helpful.
+You can check it out on GitHub.
+It was written by that Eric Conrad.*
+
+Running the [DeepBlueCLI](https://github.com/sans-blue-team/DeepBlueCLI) downloaded from github against the provided Windows Security log file, look for a successful login after a series of "High number of login failures for one account" alerts.
 
 **Answer: supatree**
 
@@ -42,6 +48,24 @@ Running the DeepBlueCLI downloaded from github against the provided Windows Secu
 Difficulty: 🌲🌲
 
 *Using [these normalized Sysmon logs](https://downloads.elfu.org/sysmon-data.json.zip), identify the tool the attacker used to retrieve domain password hashes from the lsass.exe process. For hints on achieving this objective, please visit Hermey Hall and talk with SugarPlum Mary.*
+
+Hints from SugarPlum Mary:
+*Have you tried the Sysmon and EQL challenge?
+If you aren't familiar with Sysmon, Carlos Perez has some great info about it.
+Haven't heard of the Event Query Language?
+Check out Ross Wolf's talk at CircleCityCon.*
+
+https://www.darkoperator.com/blog/2014/8/8/sysinternals-sysmon
+
+https://pen-testing.sans.org/blog/2019/12/10/eql-threat-hunting/
+
+http://www.irongeek.com/i.php?page=videos/circlecitycon2019/
+track-3-03-the-hunter-games-how-to-find-the-adversary-with-event-query-language-ross-wolf
+
+https://eqllib.readthedocs.io/en/latest/guides/sysmon.html#getting-sysmon-logs-with-powershell
+
+https://github.com/endgameinc/eqllib/tree/master/utils
+
 
 Open sysmon-data.json, find the process where the parent_process_name == lsass.exe, find its pid, search for a process with a ppid equal to the previously found pid
 
@@ -57,7 +81,14 @@ Difficulty: 🌲🌲
 
 *The attacks don't stop! Can you help identify the IP address of the malware-infected system using these [Zeek logs](https://downloads.elfu.org/elfu-zeeklogs.zip)? For hints on achieving this objective, please visit the Laboratory and talk with Sparkle Redberry.*
 
-Installed RITA and MongoDB, used RITA to import unzip logs, generated an html report, viewed beacons, picked the top source IP (which had the highest score and and also the largest number of connections)
+Hint from Sparkle Redberry:
+*For objective 5, have you taken a look at our Zeek logs?
+Something's gone wrong. But I hear someone named Rita can help us.
+Can you and she figure out what happened?*
+
+https://www.activecountermeasures.com/free-tools/rita/
+
+In installed RITA and MongoDB in docker containers, used RITA to import unzip logs, generated an html report, viewed beacons, picked the top source IP (which had the highest score and and also the largest number of connections)
 
 **Answer: 192.168.134.130**
 
@@ -105,6 +136,14 @@ Difficulty: 🌲🌲🌲
 
 *Gain access to the steam tunnels. Who took the turtle doves? Please tell us their first and last name. For hints on achieving this objective, please visit Minty's dorm room and talk with Minty Candy Cane.*
 
+Hints from Minty Candycane:
+*Have you played with the key grinder in my room? Check it out!
+It turns out: if you have a good image of a key, you can physically copy it.
+Maybe you'll see someone hopping around with a key here on campus.
+Sometimes you can find it in the Network tab of the browser console.
+Deviant has a great talk on it at this year's Con.
+He even has a collection of key bitting templates for common vendors like Kwikset, Schlage, and Yale.*
+
 Walk into Minty's dorm room with the key cutter, spot Krampus and the key hanging from his belt. His avatar image can be [found here](https://2019.kringlecon.com/images/avatars/elves/krampus.png). 
 
 The lock in the closet has the brand name "Schlage" on it, so use the [Schlage key bitting template](https://github.com/deviantollam/decoding) provided by Deviant Ollam from his KringleCon 2019 talk, [Optical Decoding of Keys](https://www.youtube.com/watch?v=KU6FJnbkeLA&t=793s).
@@ -122,7 +161,6 @@ Difficulty: 🌲🌲🌲🌲
 *Help Krampus beat the [Frido Sleigh contest](https://fridosleigh.com/). For hints on achieving this objective, please talk with Alabaster Snowball in the Speaker Unpreparedness Room.*
 
 Hints from Krampus:
-
 *Tell you what – if you can help me beat the [Frido Sleigh](https://fridosleigh.com/) contest (Objective 8), then I'll know I can trust you.
 The contest is here on my screen and at fridosleigh.com.
 No purchase necessary, enter as often as you want, so I am!
@@ -131,6 +169,13 @@ Unfortunately, it's restricted to elves only, and I can't bypass the CAPTEHA.
 (That's Completely Automated Public Turing test to tell Elves and Humans Apart.)
 I've already cataloged [12,000 images](https://downloads.elfu.org/capteha_images.tar.gz) and decoded the [API interface](https://downloads.elfu.org/capteha_api.py).
 Can you help me bypass the CAPTEHA and submit lots of entries?*
+
+Hints from Alabaster Snowball:
+*Have you heard about the Frido Sleigh contest?
+There are some serious prizes up for grabs.
+The content is strictly for elves. Only elves can pass the CAPTEHA challenge required to enter.
+I heard there was a talk at KCII (https://www.youtube.com/watch?v=jmVPLwjm_zs) about using machine learning to defeat challenges like this.
+I don't think anything could ever beat an elf though!*
 
 Check out Chris Davis's talk, [Machine Learning Use Cases for Cybersecurity](https://www.youtube.com/watch?v=jmVPLwjm_zs), along with his [example code](https://github.com/chrisjd20/img_rec_tf_ml_demo).
 
@@ -167,12 +212,22 @@ Difficulty: 🌲🌲🌲🌲
 *Gain access to the data on the [Student Portal](https://studentportal.elfu.org/) server and retrieve the paper scraps hosted there. What is the name of Santa's cutting-edge sleigh guidance system? For hints on achieving this objective, please visit the dorm and talk with Pepper Minstix.*
 
 Hints from Krampus:
-
 *As for those scraps of paper, I scanned those and put the images on my server.
 I then threw the paper away.
 Unfortunately, I managed to lock out my account on the server.
 Hey! You’ve got some great skills. Would you please hack into my system and retrieve the scans?
 I give you permission to hack into it, solving Objective 9 in your badge.*
+
+Hints from Pepper Minstix:
+*Have you had any luck retrieving scraps of paper from the Elf U server?
+You might want to look into SQL injection techniques.
+OWASP is always a good resource for web attacks.
+For blind SQLi, I've heard Sqlmap is a great tool.
+In certain circumstances though, you need custom tamper scripts to get things going!*
+
+https://www.owasp.org/index.php/SQL_Injection
+
+https://pen-testing.sans.org/blog/2017/10/13/sqlmap-tamper-scripts-for-the-win
 
 
 I used this python code to retrieve a validator token code
@@ -375,42 +430,17 @@ Route Calculation Success! RID:0807198508261964
 **Answer: 0807198508261964**
 
 
+<br><br><br>
 # Terminals and Challenges
 
 ## Escape Ed challenge - Bushy Evergreen
 
 Answer: .wq
 
-Hint:
-
-    Wow, that was much easier than I'd thought.
-    Maybe I don't need a clunky GUI after all!
-    Have you taken a look at the password spray attack artifacts?
-    I'll bet that DeepBlueCLI tool is helpful.
-    You can check it out on GitHub.
-    It was written by that Eric Conrad.
-    He lives in Maine - not too far from here!
-
-    https://github.com/sans-blue-team/DeepBlueCLI
-
-
 
 ## Linux Path - SugarPlum Mary
 
 Answer: /bin/ls
-
-Hint:
-
-    Have you tried the Sysmon and EQL challenge?
-    If you aren't familiar with Sysmon, Carlos Perez has some great info about it.
-    Haven't heard of the Event Query Language?
-    Check out Ross Wolf's talk at CircleCityCon.
-
-    https://www.darkoperator.com/blog/2014/8/8/sysinternals-sysmon
-    https://pen-testing.sans.org/blog/2019/12/10/eql-threat-hunting/
-    http://www.irongeek.com/i.php?page=videos/circlecitycon2019/track-3-03-the-hunter-games-how-to-find-the-adversary-with-event-query-language-ross-wolf
-    https://eqllib.readthedocs.io/en/latest/guides/sysmon.html#getting-sysmon-logs-with-powershell)
-    https://github.com/endgameinc/eqllib/tree/master/utils
 
 
 ## Mongo Pilfer - Holly Evergreen
@@ -445,14 +475,6 @@ Answer:
     > use elfu
     > db.loadServerScripts();displaySolution();
 
-Hint:
-
-    Woohoo! Fantabulous! I'll be the coolest elf in class.
-    On a completely unrelated note, digital rights management can bring a hacking elf down.
-    That ElfScrow one can really be a hassle.
-    It's a good thing Ron Bowes is giving a talk on reverse engineering!
-    That guy knows how to rip a thing apart. It's like he breathes opcodes!
-
 
 ## Nyanshell - Alabaster Snowball
 
@@ -461,15 +483,6 @@ Answer:
     sudo chattr -i /bin/nsh
     cat /bin/bash > /bin/nsh
     su - alabaster_snowball
-
-Hint:
-
-    Who would do such a thing?? Well, it IS a good looking cat.
-    Have you heard about the Frido Sleigh contest?
-    There are some serious prizes up for grabs.
-    The content is strictly for elves. Only elves can pass the CAPTEHA challenge required to enter.
-    I heard there was a talk at KCII (https://www.youtube.com/watch?v=jmVPLwjm_zs) about using machine learning to defeat challenges like this.
-    I don't think anything could ever beat an elf though!
 
 
 ## Frosty Keypad - Tangle Coalbox
@@ -509,15 +522,6 @@ Paste into URL box
 
     hhc://trail.hhc/fin/
 
-Hint:
-
-    Have you played with the key grinder in my room? Check it out!
-    It turns out: if you have a good image of a key, you can physically copy it.
-    Maybe you'll see someone hopping around with a key here on campus.
-    Sometimes you can find it in the Network tab of the browser console.
-    Deviant has a great talk on it at this year's Con.
-    He even has a collection of key bitting templates for common vendors like Kwikset, Schlage, and Yale.
-
 
 ## Xmas Cheer Laser - Sparkle Redberry
 
@@ -539,14 +543,6 @@ Solution:
     (Invoke-WebRequest http://localhost:1225/api/on).RawContent
 
     (Invoke-WebRequest http://localhost:1225/api/output).RawContent
-
-Hint:
-
-    You got it - three cheers for cheer!
-    For objective 5, have you taken a look at our Zeek logs?
-    Something's gone wrong. But I hear someone named Rita can help us.
-    Can you and she figure out what happened?
-    https://www.activecountermeasures.com/free-tools/rita/
 
 
 ## GrayLog - Pepper Minstix
@@ -614,16 +610,6 @@ Done
 
     Incident Response Report #7830984301576234 Submitted.
     Incident Fully Detected!
-
-    That's it - hooray!
-    Have you had any luck retrieving scraps of paper from the Elf U server?
-    You might want to look into SQL injection techniques.
-    OWASP is always a good resource for web attacks.
-    For blind SQLi, I've heard Sqlmap is a great tool.
-    In certain circumstances though, you need custom tamper scripts to get things going!
-
-    https://www.owasp.org/index.php/SQL_Injection
-    https://pen-testing.sans.org/blog/2017/10/13/sqlmap-tamper-scripts-for-the-win
 
 
 ## Wunorse Openslae - Zeek JSON Analysis
