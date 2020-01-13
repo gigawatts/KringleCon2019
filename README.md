@@ -111,7 +111,7 @@ The lock in the closet has the brand name "Schlage" on it, so use the [Schlage k
 
 Overlay it on top of the image of Krampus' key, and decode it. I used GIMP, putting the bitting template on one layer and the key on another, resizing both until they lined up. The key decodes to (1-2-2-5-2-0). 
 
-Use the [key cutting machine](https://key.elfu.org/?challenge=bitting-cutter) to cut a key with this code, then open the lock in the closet with that key. Walk in, talk to Krampus.
+Use the [key cutting machine](https://key.elfu.org/?challenge=bitting-cutter) to cut a key with this code, then open the [lock in the closet](https://thisisit.elfu.org/?challenge=bitting-keyhole) with that key. Walk in, talk to Krampus.
 
 **Answer: Krampus Hollyfeld**
 
@@ -165,6 +165,15 @@ The script output looks something like this:
 Difficulty: 🌲🌲🌲🌲
 
 *Gain access to the data on the [Student Portal](https://studentportal.elfu.org/) server and retrieve the paper scraps hosted there. What is the name of Santa's cutting-edge sleigh guidance system? For hints on achieving this objective, please visit the dorm and talk with Pepper Minstix.*
+
+Hints from Krampus:
+
+*As for those scraps of paper, I scanned those and put the images on my server.
+I then threw the paper away.
+Unfortunately, I managed to lock out my account on the server.
+Hey! You’ve got some great skills. Would you please hack into my system and retrieve the scans?
+I give you permission to hack into it, solving Objective 9 in your badge.*
+
 
 I used this python code to retrieve a validator token code
      
@@ -272,8 +281,17 @@ Difficulty: 🌲🌲🌲🌲🌲
 
 *For hints on achieving this objective, please visit the Student Union and talk with Kent Tinseltooth.*
 
+Hints from Shinny Upatree:
+*Psst - hey!
+I'm Shinny Upatree, and I know what's going on!
+Yeah, that's right - guarding the sleigh shop has made me privvy to some serious, high-level intel.
+In fact, I know WHO is causing all the trouble.
+Cindy? Oh no no, not that who. And stop guessing - you'll never figure it out.
+The only way you could would be if you could break into my crate, here.
+You see, I've written the villain's name down on a piece of paper and hidden it away securely!*
 
-Crack all the locks on [the crate](https://sleighworkshopdoor.elfu.org/)
+
+Crack all the locks on [the door](https://sleighworkshopdoor.elfu.org/) or [the crate](https://crate.elfu.org/)
 
 To open each lock, use Browser Dev Tools (F12 in Chrome)
 
@@ -355,3 +373,269 @@ Paste the two sets of IPs into the firewall form, click DENY
 Route Calculation Success! RID:0807198508261964
 
 **Answer: 0807198508261964**
+
+
+# Terminals and Challenges
+
+## Escape Ed challenge - Bushy Evergreen
+
+Answer: .wq
+
+Hint:
+
+    Wow, that was much easier than I'd thought.
+    Maybe I don't need a clunky GUI after all!
+    Have you taken a look at the password spray attack artifacts?
+    I'll bet that DeepBlueCLI tool is helpful.
+    You can check it out on GitHub.
+    It was written by that Eric Conrad.
+    He lives in Maine - not too far from here!
+
+    https://github.com/sans-blue-team/DeepBlueCLI
+
+
+
+## Linux Path - SugarPlum Mary
+
+Answer: /bin/ls
+
+Hint:
+
+    Have you tried the Sysmon and EQL challenge?
+    If you aren't familiar with Sysmon, Carlos Perez has some great info about it.
+    Haven't heard of the Event Query Language?
+    Check out Ross Wolf's talk at CircleCityCon.
+
+    https://www.darkoperator.com/blog/2014/8/8/sysinternals-sysmon
+    https://pen-testing.sans.org/blog/2019/12/10/eql-threat-hunting/
+    http://www.irongeek.com/i.php?page=videos/circlecitycon2019/track-3-03-the-hunter-games-how-to-find-the-adversary-with-event-query-language-ross-wolf
+    https://eqllib.readthedocs.io/en/latest/guides/sysmon.html#getting-sysmon-logs-with-powershell)
+    https://github.com/endgameinc/eqllib/tree/master/utils
+
+
+## Mongo Pilfer - Holly Evergreen
+
+    $ ps -ef
+    mongo       10     1  3 00:49 ?        00:00:01 /usr/bin/mongod --quiet --fork --port 12121
+
+    elf@1c11471c21d3:~$ grep mongo /etc/passwd
+    mongodb:x:101:101::/var/lib/mongodb:/usr/sbin/nologin
+    mongo:x:1000:1000::/home/mongo:/bin/sh
+
+dump
+
+    $ mongodump --port 12121
+
+    $ cat dump/elfu/solution.bson
+    t_id fYou did good! Just run the command between the stars: ** db.loadServerScripts();displaySolution(); **
+
+connect
+
+    mongo --port 12121
+
+    > show dbs
+    admin   0.000GB
+    config  0.000GB
+    elfu    0.000GB
+    local   0.000GB
+    test    0.000GB
+
+Answer:
+
+    > use elfu
+    > db.loadServerScripts();displaySolution();
+
+Hint:
+
+    Woohoo! Fantabulous! I'll be the coolest elf in class.
+    On a completely unrelated note, digital rights management can bring a hacking elf down.
+    That ElfScrow one can really be a hassle.
+    It's a good thing Ron Bowes is giving a talk on reverse engineering!
+    That guy knows how to rip a thing apart. It's like he breathes opcodes!
+
+
+## Nyanshell - Alabaster Snowball
+
+Answer:
+    lsattr /bin/nsh
+    sudo chattr -i /bin/nsh
+    cat /bin/bash > /bin/nsh
+    su - alabaster_snowball
+
+Hint:
+
+    Who would do such a thing?? Well, it IS a good looking cat.
+    Have you heard about the Frido Sleigh contest?
+    There are some serious prizes up for grabs.
+    The content is strictly for elves. Only elves can pass the CAPTEHA challenge required to enter.
+    I heard there was a talk at KCII (https://www.youtube.com/watch?v=jmVPLwjm_zs) about using machine learning to defeat challenges like this.
+    I don't think anything could ever beat an elf though!
+
+
+## Frosty Keypad - Tangle Coalbox
+
+https://keypad.elfu.org/?challenge=keypad
+
+I've got a few clues for you.
+One digit is repeated once.
+The code is a prime number.
+You can probably tell by looking at the keypad which buttons are used.
+
+    cat prime.list | grep 1 | grep 3 | grep 7 | egrep -v '2|4|5|6|8|9|0'
+
+**Answer: PIN = 7331**
+
+Hint:
+
+    Yep, that's it. Thanks for the assist, gumshoe.
+    Hey, if you think you can help with another problem, Prof. Banas could use a hand too.
+    Head west to the other side of the quad into Hermey Hall and find him in the Laboratory.
+
+
+## Holiday Hack Trail - Minty Candycane
+
+https://trail.elfu.org/gameselect/
+
+    I just LOVE this old game!
+    I found it on a 5 1/4" floppy in the attic.
+    You should give it a go!
+    If you get stuck at all, check out this year's talks.
+    One is about web application penetration testing.
+    Good luck, and don't get dysentery!
+
+Paste into URL box
+
+    hhc://trail.hhc/trail/?difficulty=0&distance=8000&money=5000&pace=0&curmonth=7&curday=1&reindeer=2&runners=2&ammo=100&meds=20&food=400&name0=Ryan&health0=100&cond0=0&causeofdeath0=&deathday0=0&deathmonth0=0&name1=Chloe&health1=100&cond1=0&causeofdeath1=&deathday1=0&deathmonth1=0&name2=Herbert&health2=100&cond2=0&causeofdeath2=&deathday2=0&deathmonth2=0&name3=Sally&health3=100&cond3=0&causeofdeath3=&deathday3=0&deathmonth3=0
+
+    hhc://trail.hhc/fin/
+
+Hint:
+
+    Have you played with the key grinder in my room? Check it out!
+    It turns out: if you have a good image of a key, you can physically copy it.
+    Maybe you'll see someone hopping around with a key here on campus.
+    Sometimes you can find it in the Network tab of the browser console.
+    Deviant has a great talk on it at this year's Con.
+    He even has a collection of key bitting templates for common vendors like Kwikset, Schlage, and Yale.
+
+
+## Xmas Cheer Laser - Sparkle Redberry
+
+    I'm Sparkle Redberry and Imma chargin' my laser!
+    Problem is: the settings are off.
+    Do you know any PowerShell?
+    It'd be GREAT if you could hop in and recalibrate this thing.
+    It spreads holiday cheer across the Earth ...
+    ... when it's working!
+
+Solution:
+
+    (Invoke-WebRequest http://localhost:1225/api/off).RawContent
+    (Invoke-WebRequest http://localhost:1225/api/temperature?val=-33.5).RawContent
+    (Invoke-WebRequest http://127.0.0.1:1225/api/angle?val=65.5).RawContent
+    (Invoke-WebRequest http://127.0.0.1:1225/api/refraction?val=1.867).RawContent
+    $correct_gases_postbody = @{O=6;H=7;;He=3;N=4;Ne=22;Ar=11;Xe=10;F=20;Kr=8;Rn=9}
+    Invoke-WebRequest -Uri http://localhost:1225/api/gas -Method POST -Body $correct_gases_postbody
+    (Invoke-WebRequest http://localhost:1225/api/on).RawContent
+
+    (Invoke-WebRequest http://localhost:1225/api/output).RawContent
+
+Hint:
+
+    You got it - three cheers for cheer!
+    For objective 5, have you taken a look at our Zeek logs?
+    Something's gone wrong. But I hear someone named Rita can help us.
+    Can you and she figure out what happened?
+    https://www.activecountermeasures.com/free-tools/rita/
+
+
+## GrayLog - Pepper Minstix
+
+    Normally I'm jollier, but this Graylog has me a bit mystified.
+    Have you used Graylog before? It is a log management system based on Elasticsearch, MongoDB, and Scala.
+    Some Elf U computers were hacked, and I've been tasked with performing incident response.
+    Can you help me fill out the incident response report using our instance of Graylog?
+    It's probably helpful if you know a few things about Graylog.
+    Event IDs and Sysmon are important too. Have you spent time with those?
+    Don't worry - I'm sure you can figure this all out for me!
+    Click on the All messages Link to access the Graylog search interface!
+    Make sure you are searching in all messages!
+    The Elf U Graylog server has an integrated incident response reporting system. Just mouse-over the box in the lower-right corner.
+    Login with the username elfustudent and password elfustudent.
+
+https://graylog.elfu.org/streams/000000000000000000000001/search
+
+1:
+
+    Q: viewed previous searches, found "filtering out other users ok"
+    A:  C:\Users\minty\Downloads\cookie_recipe.exe
+
+2:
+
+    Q: search for "_exists_:DestinationIp AND _exists_:DestinationPort and ProcessImage:/.*cookie_recipe.exe/ AND UserAccount:minty"
+    A: 192.168.247.175:4444
+
+3:
+
+    Q: search for CommandLine strings from "cookie_recipe.exe" search
+    A: whoami
+
+4:
+
+    webexservice
+
+5:
+
+    C:\cookie.exe
+
+6:
+
+    alabaster
+
+7:
+
+    06:04:28
+
+8:
+
+    elfu-res-wks2,elfu-res-wks3,3
+
+9:
+
+    C:\Users\alabaster\Desktop\super_secret_elfu_research.pdf
+
+10:
+
+    Q: Search for "source:elfu-res-wks2" during 2019-11-19 06:14:24 to :25 timespan
+    A: 104.22.3.84
+
+
+Done
+
+    Incident Response Report #7830984301576234 Submitted.
+    Incident Fully Detected!
+
+    That's it - hooray!
+    Have you had any luck retrieving scraps of paper from the Elf U server?
+    You might want to look into SQL injection techniques.
+    OWASP is always a good resource for web attacks.
+    For blind SQLi, I've heard Sqlmap is a great tool.
+    In certain circumstances though, you need custom tamper scripts to get things going!
+
+    https://www.owasp.org/index.php/SQL_Injection
+    https://pen-testing.sans.org/blog/2017/10/13/sqlmap-tamper-scripts-for-the-win
+
+
+## Wunorse Openslae - Zeek JSON Analysis
+
+    Wunorse Openslae here, just looking at some Zeek logs.
+    I'm pretty sure one of these connections is a malicious C2 channel...
+    Do you think you could take a look?
+    I hear a lot of C2 channels have very long connection times.
+    Please use jq to find the longest connection in this data set.
+    We have to kick out any and all grinchy activity!
+
+https://pen-testing.sans.org/blog/2019/12/03/parsing-zeek-json-logs-with-jq-2
+
+    cat conn.log | jq -s 'sort_by(.duration) | reverse | .[0]'
+    runtoanswer 13.107.21.200
