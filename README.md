@@ -301,6 +301,10 @@ I started with [Ron's template](https://github.com/CounterHack/reversing-crypto-
 
 I used the LCG::Microsoft rand() code found at https://rosettacode.org/wiki/Linear_congruential_generator#Ruby
 
+Looking at the "strings" within the exe, we can gather a few key pieces of information. The first is the error string "CryptImportKey failed for DES-CBC key", which tells us what cipher and mode to use.
+
+Using the exe to encrypt a test file, it spits out the key length, and gives further confirmation of the encryption cipher used.
+
 The solve.rb script I used can be found [here](obj10/solve.rb)
 
 I ran this script to generate a list of all the timestamps in the time range given, run the solve.rb script for each time stamp which spits out an attempt at the decrypted PDF. The last step searches through all the "decrypted" files and prints out the name of the files with a "magic number" that matches that of a PDF file.
