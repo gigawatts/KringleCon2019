@@ -325,7 +325,7 @@ I ran this script to generate a list of all the timestamps in the time range giv
         esac
         exit 1' sh {} ';' -print
 
-This returns the a single PDF file name, decrypted using a seed of 1575663650 and a key = b5ad6a321240fbec
+This returns a single PDF file name, decrypted using a seed of 1575663650 and a key = b5ad6a321240fbec
 
 Open up 1575663650-dec.pdf and read the 5 word string in the middle of the first page.
 
