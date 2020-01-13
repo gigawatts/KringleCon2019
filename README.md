@@ -653,3 +653,27 @@ https://pen-testing.sans.org/blog/2019/12/03/parsing-zeek-json-logs-with-jq-2
 ## Smart Braces - Kent Tinseltooth
 
 https://docker2019.kringlecon.com/?challenge=iptables&id=aeb965b7-7032-4d84-95ac-ea0c879bf559
+
+    $ cat IOTteethBraces.md 
+    # ElfU Research Labs - Smart Braces
+    ### A Lightweight Linux Device for Teeth Braces
+    ### Imagined and Created by ElfU Student Kent TinselTooth
+    This device is embedded into one's teeth braces for easy management and monitoring of dental status. It uses FTP and HTTP for management and monitoring purposes but also has SSH for remote access. Please refer to the management documentation for this purpose.
+
+Proper Firewall configuration:
+
+    The firewall used for this system is `iptables`. The following is an example of how to set a default policy with using `iptables`:
+    ```
+    sudo iptables -P FORWARD DROP
+    ```
+    The following is an example of allowing traffic from a specific IP and to a specific port:
+    ```
+    sudo iptables -A INPUT -p tcp --dport 25 -s 172.18.5.4 -j ACCEPT
+    ```
+    A proper configuration for the Smart Braces should be exactly:
+    1. Set the default policies to DROP for the INPUT, FORWARD, and OUTPUT chains.
+    2. Create a rule to ACCEPT all connections that are ESTABLISHED,RELATED on the INPUT and the OUTPUT chains.
+    3. Create a rule to ACCEPT only remote source IP address 172.19.0.225 to access the local SSH server (on port 22).
+    4. Create a rule to ACCEPT any source IP to the local TCP services on ports 21 and 80.
+    5. Create a rule to ACCEPT all OUTPUT traffic with a destination TCP port of 80.
+    6. Create a rule applied to the INPUT chain to ACCEPT all traffic from the lo interface.
