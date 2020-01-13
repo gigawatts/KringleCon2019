@@ -435,15 +435,21 @@ Route Calculation Success! RID:0807198508261964
 
 ## Escape Ed challenge - Bushy Evergreen
 
-Answer: .wq
+https://docker2019.kringlecon.com/?challenge=edescape&id=aeb965b7-7032-4d84-95ac-ea0c879bf559
+
+**Answer: .wq**
 
 
 ## Linux Path - SugarPlum Mary
 
-Answer: /bin/ls
+https://docker2019.kringlecon.com/?challenge=path&id=aeb965b7-7032-4d84-95ac-ea0c879bf559
+
+**Answer: /bin/ls**
 
 
 ## Mongo Pilfer - Holly Evergreen
+
+https://docker2019.kringlecon.com/?challenge=mongo&id=aeb965b7-7032-4d84-95ac-ea0c879bf559
 
     $ ps -ef
     mongo       10     1  3 00:49 ?        00:00:01 /usr/bin/mongod --quiet --fork --port 12121
@@ -457,7 +463,7 @@ dump
     $ mongodump --port 12121
 
     $ cat dump/elfu/solution.bson
-    t_id fYou did good! Just run the command between the stars: ** db.loadServerScripts();displaySolution(); **
+    You did good! Just run the command between the stars: ** db.loadServerScripts();displaySolution(); **
 
 connect
 
@@ -470,7 +476,7 @@ connect
     local   0.000GB
     test    0.000GB
 
-Answer:
+**Answer:**
 
     > use elfu
     > db.loadServerScripts();displaySolution();
@@ -478,7 +484,12 @@ Answer:
 
 ## Nyanshell - Alabaster Snowball
 
-Answer:
+https://docker2019.kringlecon.com/?challenge=nyanshell&id=aeb965b7-7032-4d84-95ac-ea0c879bf559
+
+
+
+**Answer:**
+
     lsattr /bin/nsh
     sudo chattr -i /bin/nsh
     cat /bin/bash > /bin/nsh
@@ -516,6 +527,8 @@ https://trail.elfu.org/gameselect/
     One is about web application penetration testing.
     Good luck, and don't get dysentery!
 
+**Solution:**
+
 Paste into URL box
 
     hhc://trail.hhc/trail/?difficulty=0&distance=8000&money=5000&pace=0&curmonth=7&curday=1&reindeer=2&runners=2&ammo=100&meds=20&food=400&name0=Ryan&health0=100&cond0=0&causeofdeath0=&deathday0=0&deathmonth0=0&name1=Chloe&health1=100&cond1=0&causeofdeath1=&deathday1=0&deathmonth1=0&name2=Herbert&health2=100&cond2=0&causeofdeath2=&deathday2=0&deathmonth2=0&name3=Sally&health3=100&cond3=0&causeofdeath3=&deathday3=0&deathmonth3=0
@@ -525,6 +538,8 @@ Paste into URL box
 
 ## Xmas Cheer Laser - Sparkle Redberry
 
+https://docker2019.kringlecon.com/?challenge=powershell&id=0bdc5b32-99aa-426f-83f9-ffea2e103154
+
     I'm Sparkle Redberry and Imma chargin' my laser!
     Problem is: the settings are off.
     Do you know any PowerShell?
@@ -532,7 +547,7 @@ Paste into URL box
     It spreads holiday cheer across the Earth ...
     ... when it's working!
 
-Solution:
+**Solution:**
 
     (Invoke-WebRequest http://localhost:1225/api/off).RawContent
     (Invoke-WebRequest http://localhost:1225/api/temperature?val=-33.5).RawContent
@@ -547,6 +562,8 @@ Solution:
 
 ## GrayLog - Pepper Minstix
 
+https://incident.elfu.org/?challenge=graylog
+
     Normally I'm jollier, but this Graylog has me a bit mystified.
     Have you used Graylog before? It is a log management system based on Elasticsearch, MongoDB, and Scala.
     Some Elf U computers were hacked, and I've been tasked with performing incident response.
@@ -559,7 +576,6 @@ Solution:
     The Elf U Graylog server has an integrated incident response reporting system. Just mouse-over the box in the lower-right corner.
     Login with the username elfustudent and password elfustudent.
 
-https://graylog.elfu.org/streams/000000000000000000000001/search
 
 1:
 
@@ -606,13 +622,14 @@ https://graylog.elfu.org/streams/000000000000000000000001/search
     A: 104.22.3.84
 
 
-Done
+Incident Response Report #7830984301576234 Submitted.
 
-    Incident Response Report #7830984301576234 Submitted.
-    Incident Fully Detected!
+Incident Fully Detected!
 
 
 ## Wunorse Openslae - Zeek JSON Analysis
+
+https://docker2019.kringlecon.com/?challenge=jq&id=e50513a7-e21b-455c-be36-311a556cb5b4
 
     Wunorse Openslae here, just looking at some Zeek logs.
     I'm pretty sure one of these connections is a malicious C2 channel...
@@ -624,4 +641,14 @@ Done
 https://pen-testing.sans.org/blog/2019/12/03/parsing-zeek-json-logs-with-jq-2
 
     cat conn.log | jq -s 'sort_by(.duration) | reverse | .[0]'
-    runtoanswer 13.107.21.200
+
+    runtoanswer
+
+    What is the destination IP address with the longes connection duration?
+
+**Answer: 13.107.21.200**
+
+
+## Smart Braces - Kent Tinseltooth
+
+https://docker2019.kringlecon.com/?challenge=iptables&id=aeb965b7-7032-4d84-95ac-ea0c879bf559
