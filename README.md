@@ -59,8 +59,7 @@ https://www.darkoperator.com/blog/2014/8/8/sysinternals-sysmon
 
 https://pen-testing.sans.org/blog/2019/12/10/eql-threat-hunting/
 
-http://www.irongeek.com/i.php?page=videos/circlecitycon2019/
-track-3-03-the-hunter-games-how-to-find-the-adversary-with-event-query-language-ross-wolf
+http://www.irongeek.com/i.php?page=videos/circlecitycon2019/track-3-03-the-hunter-games-how-to-find-the-adversary-with-event-query-language-ross-wolf
 
 https://eqllib.readthedocs.io/en/latest/guides/sysmon.html#getting-sysmon-logs-with-powershell
 
@@ -504,6 +503,8 @@ I've got a few clues for you.
 One digit is repeated once.
 The code is a prime number.
 You can probably tell by looking at the keypad which buttons are used.
+
+I found a list of the first 10k prime numbers, and ran this command against it. It spit out a list of only a few options.
 
     cat prime.list | grep 1 | grep 3 | grep 7 | egrep -v '2|4|5|6|8|9|0'
 
