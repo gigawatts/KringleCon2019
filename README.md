@@ -87,7 +87,7 @@ Can you and she figure out what happened?*
 
 https://www.activecountermeasures.com/free-tools/rita/
 
-In installed RITA and MongoDB in docker containers, used RITA to import unzip logs, generated an html report, viewed beacons, picked the top source IP (which had the highest score and and also the largest number of connections)
+I installed RITA and MongoDB in docker containers, used RITA to import unzip logs, generated an html report, viewed beacons, picked the top source IP (which had the highest score and and also the largest number of connections)
 
 **Answer: 192.168.134.130**
 
@@ -97,7 +97,7 @@ Difficulty: 🌲🌲🌲
 
 *Access https://splunk.elfu.org/ as elf with password elfsocks. What was the message for Kent that the adversary embedded in this attack? The SOC folks at that link will help you along! For hints on achieving this objective, please visit the Laboratory in Hermey Hall and talk with Prof. Banas.*
 
-Login with Username: elf  Password: elfsocks.
+Login with Username: elf  Password: elfsocks
 
 Training Questions
 
@@ -147,7 +147,7 @@ Walk into Minty's dorm room with the key cutter, spot Krampus and the key hangin
 
 The lock in the closet has the brand name "Schlage" on it, so use the [Schlage key bitting template](https://github.com/deviantollam/decoding) provided by Deviant Ollam from his KringleCon 2019 talk, [Optical Decoding of Keys](https://www.youtube.com/watch?v=KU6FJnbkeLA&t=793s).
 
-Overlay it on top of the image of Krampus' key, and decode it. I used GIMP, putting the bitting template on one layer and the key on another, resizing both until they lined up. The key decodes to (1-2-2-5-2-0). 
+Overlay it on top of the image of Krampus' key and decode it. I used GIMP, putting the bitting template on one layer and the key on another, resizing both until they lined up. The key decodes to (1-2-2-5-2-0). 
 
 Use the [key cutting machine](https://key.elfu.org/?challenge=bitting-cutter) to cut a key with this code, then open the [lock in the closet](https://thisisit.elfu.org/?challenge=bitting-keyhole) with that key. Walk in, talk to Krampus.
 
@@ -182,7 +182,7 @@ I merged code from capteha_api.py and predict_images_using_trained_model.py as w
 
 I ran the training script on my desktop with a CUDA enabled NVIDIA GPU, which sped up the training by quite a bit.
 
-I ran my [solve script](obj08/solve.py) from my beefy Xeon powered server, as it was able to correctly predict all the images in under 10 seconds, while my desktop took a bit longer. I found out later on that I could have tweaked the [retrain.py](https://github.com/chrisjd20/img_rec_tf_ml_demo/blob/master/retrain.py) script to use a faster (but less accurate) model, but why optimise code when you can just throw more raw power at it? 😉
+I ran my [solve script](obj08/solve.py) from my beefy Xeon powered server, as it was able to correctly predict all the images in under 10 seconds, while my desktop took a bit longer. I found out later on that I could have tweaked the [retrain.py](https://github.com/chrisjd20/img_rec_tf_ml_demo/blob/master/retrain.py) script to use a faster (but less accurate) model, but why optimise code when you can just throw more raw power at it? 😈
 
 The script output looks something like this:
 
@@ -381,7 +381,7 @@ Difficulty: 🌲🌲🌲🌲
 
 *Use the data supplied in the [Zeek JSON logs](https://downloads.elfu.org/http.log.gz) to identify the IP addresses of attackers poisoning Santa's flight mapping software. [Block the 100 offending sources of information to guide Santa's sleigh](https://srf.elfu.org/) through the attack. Submit the Route ID ("RID") success value that you're given. For hints on achieving this objective, please visit the Sleigh Shop and talk with Wunorse Openslae.*
 
-Download and extract the zeek json formated log http.log. jq is a great tool for viewing, parsing, and searching json files.
+Download and extract the zeek json formated log http.log. JQ is a great tool for viewing, parsing, and searching json files.
 
     wget https://downloads.elfu.org/http.log.gz
     gunzip http.log.gz
@@ -398,7 +398,7 @@ I wrote this one-liner bash command which found 62 such attacks and stored each 
 
     cat http.log | jq -s -j '.[0][] | .["id.orig_h"], ", ", .uri, " ", .host, " ", .user_agent, " ", .username, "\n"' | egrep --color=always -i '\.\.|etc/|<|>|\{ :; \};|\$|\;cat|union|1=1' |  awk -F, '{print $1}' > 62-bad-ips.txt
 
-This command dumps a CSV formatted list of each of those IPs we just found, ready to be pasted straight into the SRF Firewall tool:
+This command dumps a CSV formatted list containing all those IPs, ready to be pasted straight into the SRF Firewall tool:
 
     cat 62-bad-ips.txt |  awk -F, '{print $1}' | tr '\n' ','
 
@@ -406,13 +406,13 @@ Output:
 
     42.103.246.250,56.5.47.137,19.235.69.221,69.221.145.150,42.191.112.181,48.66.193.176,49.161.8.58,84.147.231.129,44.74.106.131,106.93.213.219,2.230.60.70,10.155.246.29,225.191.220.138,75.73.228.192,249.34.9.16,27.88.56.114,238.143.78.114,121.7.186.163,106.132.195.153,129.121.121.48,190.245.228.38,34.129.179.28,135.32.99.116,2.240.116.254,45.239.232.245,102.143.16.184,230.246.50.221,131.186.145.73,253.182.102.55,229.133.163.235,23.49.177.78,223.149.180.133,33.132.98.193,84.185.44.166,254.140.181.172,150.50.77.238,187.178.169.123,116.116.98.205,9.206.212.33,28.169.41.122,68.115.251.76,118.196.230.170,173.37.160.150,81.14.204.154,135.203.243.43,186.28.46.179,13.39.153.254,111.81.145.191,0.216.249.31,31.254.228.4,220.132.33.81,83.0.8.119,150.45.133.97,229.229.189.246,227.110.45.126,61.110.82.125,65.153.114.120,123.127.233.97,95.166.116.45,80.244.147.207,168.66.108.62,200.75.228.240
 
-Next I created a tab separated formatted file of all log entries (CSV breaks because several of the fields contain commas):
+Next I created a tab separated value (TSV) formatted file of all the log entries (CSV breaks because several of the fields contain commas):
 
     cat http.log | jq -s -j '.[0][] | .ts,"\t",.uid,"\t",.["id.orig_h"],"\t",.["id.orig_p"],"\t",.["id.resp_h"],"\t",.["id.resp_p"],"\t",.method,"\t",.host,"\t",.uri,"\t",.referrer,"\t",.version,"\t",.user_agent,"\t",.origin,"\t",.status_code,"\t",.info_code,"\t",.info_msg,"\t",.username,"\t",.password,"\t",.proxied,"\t",.orig_fuids,"\t",.orig_filenames,"\t",.orig_mime_types,"\t",.resp_fuids,"\t",.resp_filenames,"\t",.resp_mime_types,"\n"' >> all.tsv
 
-To find the rest of the IPs, we have to pivot using information gathered from the logs of 62 attackers. If you look closely at the user-agents used by those attackers, most are using variations of "normal" user-agents, along with some user-agents used by known malware.
+To find the rest of the IPs, we have to pivot using information found in the logs of the 62 attackers. If you look closely at the user-agents used by those attackers, most are using strange variations of normal user-agents, along with several user-agents used by known malware.
 
-These two command create a list of all the user agents the 62 attackers used:
+These two commands create a list of all the user agents strings the 62 attackers used:
 
     for ip in $(cat 62-bad-ips.txt); do cat http.log| jq -s -j '.[0][]|.["id.orig_h"],", ",.user_agent, "\n"' | grep $ip; done |tee 62-bad-useragents.txt
 
@@ -426,7 +426,7 @@ Output:
 
     10.122.158.57,10.155.246.29,102.143.16.184,103.235.93.133,104.179.109.113,106.132.195.153,106.93.213.219,116.116.98.205,118.26.57.38,121.7.186.163,123.127.233.97,126.102.12.53,129.121.121.48,131.186.145.73,135.32.99.116,140.60.154.239,142.128.135.10,148.146.134.52,158.171.84.209,168.66.108.62,185.19.7.133,187.152.203.243,187.178.169.123,190.245.228.38,19.235.69.221,200.75.228.240,203.68.29.5,217.132.156.225,2.230.60.70,223.149.180.133,22.34.153.164,2.240.116.254,225.191.220.138,226.102.56.13,226.240.188.154,229.133.163.235,230.246.50.221,231.179.108.238,23.49.177.78,238.143.78.114,249.237.77.152,249.34.9.16,249.90.116.138,250.22.86.40,252.122.243.212,253.182.102.55,253.65.40.39,27.88.56.114,28.169.41.122,29.0.183.220,31.116.232.143,34.129.179.28,34.155.174.167,37.216.249.50,42.103.246.130,42.103.246.250,42.127.244.30,42.16.149.112,42.191.112.181,44.164.136.41,44.74.106.131,45.239.232.245,48.66.193.176,49.161.8.58,50.154.111.0,53.160.218.44,56.5.47.137,61.110.82.125,65.153.114.120,66.116.147.181,69.221.145.150,75.73.228.192,80.244.147.207,84.147.231.129,87.195.80.126,9.206.212.33,92.213.148.0,95.166.116.45,97.220.93.190
 
-Paste the two sets of IPs into the firewall form, click DENY
+Login to the [SRF site](https://srf.elfu.org) with the default admin creds we found earlier, scroll to the bottomw, and paste the two sets of IPs into the firewall form. Click DENY, and wait for the router planner to finish.
 
 Route Calculation Success! RID:0807198508261964
 
